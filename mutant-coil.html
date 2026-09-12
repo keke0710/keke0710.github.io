@@ -3,14 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mutant Coil — CosmoPixel Games</title>
+<title>Mutant Coil — CosmoPixelGames</title>
 <meta name="description" content="Jeu de serpent d'arcade pour Android : 26 apparences, boss élémentaires, sept langues, hors ligne et sans publicité.">
 <meta name="theme-color" content="#100B1E">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Crect width='26' height='26' rx='6' fill='%23100B1E'/%3E%3Ccircle cx='13' cy='13' r='8.5' fill='none' stroke='%237C4DFF' stroke-width='1.8'/%3E%3Ccircle cx='13' cy='4.5' r='2.4' fill='%23FF3DAF'/%3E%3C/svg%3E">
-<meta property="og:title" content="Mutant Coil — CosmoPixel Games">
+<meta property="og:title" content="Mutant Coil — CosmoPixelGames">
 <meta property="og:description" content="Jeu de serpent d'arcade pour Android : 26 apparences, boss élémentaires, sept langues, hors ligne et sans publicité.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://cosmopixelgames.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 :root{
   --nuit:#100B1E;
@@ -51,8 +55,8 @@ a:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:2
 .hero{position:relative;overflow:hidden;padding:104px 0 92px}
 .ciel{position:absolute;inset:0;pointer-events:none;
   background:
-    radial-gradient(58rem 38rem at 80% -12%, rgba(124,77,255,.30), transparent 64%),
-    radial-gradient(42rem 28rem at 4% 26%, rgba(255,61,175,.15), transparent 60%);
+    radial-gradient(58rem 38rem at 80% -12%, rgba(124,77,255,.17), transparent 64%),
+    radial-gradient(42rem 28rem at 4% 26%, rgba(255,61,175,.09), transparent 60%);
 }
 .etoiles{position:absolute;top:0;left:0;width:2px;height:2px;border-radius:50%;
   background:transparent;pointer-events:none;
@@ -70,14 +74,19 @@ a:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:2
   .hero .lever:nth-child(2){animation-delay:.10s}
   .hero .lever:nth-child(3){animation-delay:.18s}
   .hero .lever:nth-child(4){animation-delay:.26s}
+  .hero .lever:nth-child(5){animation-delay:.34s}
   @keyframes lever{to{opacity:1;transform:none}}
 }
 
 .hero .shell{position:relative;z-index:1}
+.logo{
+  display:block;width:100%;max-width:520px;height:auto;
+  margin:0 0 34px;
+}
 h1{
   font-family:var(--serif);font-weight:400;
-  font-size:clamp(2.15rem,6.6vw,4rem);line-height:1.1;letter-spacing:-.018em;
-  margin:0 0 26px;max-width:15ch;
+  font-size:clamp(1.85rem,5.2vw,3rem);line-height:1.12;letter-spacing:-.018em;
+  margin:0 0 26px;max-width:17ch;
 }
 .chapo{font-size:clamp(1.02rem,2.4vw,1.2rem);color:var(--craie-basse);max-width:54ch;margin:0 0 30px}
 .chapo strong{color:var(--craie);font-weight:500}
@@ -161,7 +170,7 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}
 <body>
 <header class="entete">
   <div class="shell">
-    <a class="marque" href="index.html"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="none" stroke="#7C4DFF" stroke-width="1.6"/><circle cx="13" cy="13" r="5.4" fill="none" stroke="#EDE6F5" stroke-width="1.4" opacity=".72"/><circle cx="13" cy="2" r="2.6" fill="#FF3DAF"/></svg><span>CosmoPixel&nbsp;Games</span></a>
+    <a class="marque" href="index.html"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="none" stroke="#7C4DFF" stroke-width="1.6"/><circle cx="13" cy="13" r="5.4" fill="none" stroke="#EDE6F5" stroke-width="1.4" opacity=".72"/><circle cx="13" cy="2" r="2.6" fill="#FF3DAF"/></svg><span>CosmoPixelGames</span></a>
     <nav>
       <a href="index.html#applications">Jeux et applications</a>
       <a href="index.html#regle">La règle</a>
@@ -220,8 +229,8 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}
 
 <footer>
   <div class="shell">
-    <p class="legal">CosmoPixel Games, entreprise individuelle établie en France.
-      Marque déposée à l'INPI, classes 9 et 41.</p>
+    <p class="legal">CosmoPixelGames, entreprise individuelle établie en France.
+      Marque déposée à l'INPI, classes 9 et 41, enregistrement en cours.</p>
     <nav>
       <a href="confidentialite.html">Confidentialité</a>
       <a href="mentions-legales.html">Mentions légales</a>
