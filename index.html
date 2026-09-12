@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CosmoPixel Games — jeux et applications hors ligne</title>
+<meta name="description" content="Studio indépendant français. Des jeux et des applications mobiles qui fonctionnent hors ligne et ne collectent aucune donnée.">
+<meta name="theme-color" content="#100B1E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Crect width='26' height='26' rx='6' fill='%23100B1E'/%3E%3Ccircle cx='13' cy='13' r='8.5' fill='none' stroke='%237C4DFF' stroke-width='1.8'/%3E%3Ccircle cx='13' cy='4.5' r='2.4' fill='%23FF3DAF'/%3E%3C/svg%3E">
+<meta property="og:title" content="CosmoPixel Games — jeux et applications hors ligne">
+<meta property="og:description" content="Studio indépendant français. Des jeux et des applications mobiles qui fonctionnent hors ligne et ne collectent aucune donnée.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<style>
+:root{
+  --nuit:#100B1E;
+  --nuit-haute:#191130;
+  --violet:#7C4DFF;
+  --rose:#FF3DAF;
+  --craie:#EDE6F5;
+  --craie-basse:#A79DBE;
+  --trait:rgba(237,230,245,.13);
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--nuit); color:var(--craie);
+  font:400 17px/1.62 var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+.shell{max-width:1000px;margin:0 auto;padding:0 28px}
+@media (max-width:600px){ .shell{padding:0 20px} }
+
+a{color:var(--rose);text-decoration:none;border-bottom:1px solid rgba(255,61,175,.38)}
+a:hover{border-bottom-color:var(--rose)}
+a:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:2px}
+
+/* ---------- en-tete ---------- */
+.entete{position:relative;z-index:2;padding:26px 0 0}
+.entete .shell{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.marque{display:flex;align-items:center;gap:11px;color:var(--craie);border:0;font-weight:600;letter-spacing:.005em}
+.marque svg{display:block;flex:none}
+.entete nav{margin-left:auto;display:flex;gap:22px}
+.entete nav a{color:var(--craie-basse);border:0;font-size:15px}
+.entete nav a:hover{color:var(--craie)}
+@media (max-width:640px){ .entete nav{margin-left:0;width:100%;gap:18px} }
+
+/* ---------- ciel ---------- */
+.hero{position:relative;overflow:hidden;padding:104px 0 92px}
+.ciel{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(58rem 38rem at 80% -12%, rgba(124,77,255,.30), transparent 64%),
+    radial-gradient(42rem 28rem at 4% 26%, rgba(255,61,175,.15), transparent 60%);
+}
+.etoiles{position:absolute;top:0;left:0;width:2px;height:2px;border-radius:50%;
+  background:transparent;pointer-events:none;
+  box-shadow:
+   64px 118px rgba(237,230,245,.55), 213px 62px rgba(237,230,245,.34), 351px 190px rgba(237,230,245,.45),
+   470px 96px rgba(255,61,175,.50), 588px 232px rgba(237,230,245,.28), 705px 44px rgba(237,230,245,.42),
+   822px 174px rgba(237,230,245,.32), 940px 118px rgba(196,181,253,.55), 118px 262px rgba(237,230,245,.24),
+   276px 330px rgba(237,230,245,.38), 412px 292px rgba(237,230,245,.22), 534px 356px rgba(196,181,253,.34),
+   664px 300px rgba(237,230,245,.44), 790px 372px rgba(237,230,245,.20), 908px 268px rgba(255,61,175,.36),
+   34px 402px rgba(237,230,245,.30), 168px 448px rgba(237,230,245,.20), 992px 410px rgba(237,230,245,.30),
+   1078px 152px rgba(237,230,245,.26), 1146px 320px rgba(196,181,253,.30);
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero .lever{opacity:0;transform:translateY(14px);animation:lever .9s cubic-bezier(.2,.7,.3,1) forwards}
+  .hero .lever:nth-child(2){animation-delay:.10s}
+  .hero .lever:nth-child(3){animation-delay:.18s}
+  .hero .lever:nth-child(4){animation-delay:.26s}
+  @keyframes lever{to{opacity:1;transform:none}}
+}
+
+.hero .shell{position:relative;z-index:1}
+h1{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(2.15rem,6.6vw,4rem);line-height:1.1;letter-spacing:-.018em;
+  margin:0 0 26px;max-width:15ch;
+}
+.chapo{font-size:clamp(1.02rem,2.4vw,1.2rem);color:var(--craie-basse);max-width:54ch;margin:0 0 30px}
+.chapo strong{color:var(--craie);font-weight:500}
+.identite{font-size:14.5px;color:var(--craie-basse);margin:34px 0 0;max-width:52ch}
+
+.liens-hero{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+.bouton{
+  display:inline-block;padding:13px 24px;border:1px solid rgba(255,61,175,.55);
+  border-radius:999px;color:var(--craie);font-weight:500;font-size:16px;
+  background:rgba(255,61,175,.10);
+}
+.bouton:hover{background:rgba(255,61,175,.18);border-color:var(--rose)}
+
+/* ---------- sections ---------- */
+section{padding:78px 0;border-top:1px solid var(--trait)}
+h2{
+  font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,3.4vw,2.1rem);
+  line-height:1.2;letter-spacing:-.012em;margin:0 0 34px;
+}
+h3{font-family:var(--serif);font-weight:400;font-size:1.32rem;line-height:1.25;margin:0 0 10px}
+p{margin:0 0 18px;max-width:66ch}
+p:last-child{margin-bottom:0}
+
+/* jeu en vedette */
+.vedette{
+  background:var(--nuit-haute);border:1px solid var(--trait);border-radius:20px;
+  padding:38px;display:grid;grid-template-columns:96px 1fr;gap:30px;align-items:start;
+}
+.vedette h3{font-size:1.75rem;margin-bottom:14px}
+.jeton{
+  width:96px;height:96px;border-radius:26px;display:grid;place-items:center;
+  background:radial-gradient(circle at 34% 28%, #3B1F6B, #14092B 72%);
+  border:1px solid rgba(237,230,245,.12);
+}
+@media (max-width:640px){
+  .vedette{grid-template-columns:1fr;padding:26px;gap:22px}
+  .jeton{width:76px;height:76px;border-radius:20px}
+}
+.apres{margin-top:22px;display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.attente{color:var(--craie-basse);font-size:15px}
+
+/* liste de projets */
+.projets{margin:0;padding:0;list-style:none}
+.projets li{
+  display:grid;grid-template-columns:13rem 1fr;gap:28px;
+  padding:24px 0;border-top:1px solid var(--trait);align-items:baseline;
+}
+.projets li:first-child{border-top:0;padding-top:0}
+.projets .nom{font-family:var(--serif);font-size:1.25rem;line-height:1.3}
+.projets .quoi{color:var(--craie-basse);margin:0;max-width:54ch}
+@media (max-width:640px){
+  .projets li{grid-template-columns:1fr;gap:7px}
+}
+
+/* la charte */
+.charte{margin:0;padding:0;list-style:none;max-width:64ch}
+.charte li{
+  border-left:2px solid var(--violet);padding:2px 0 2px 22px;margin:0 0 26px;
+}
+.charte li:last-child{margin-bottom:0;border-left-color:var(--rose)}
+.charte p{margin:0;color:var(--craie-basse)}
+.charte b{color:var(--craie);font-weight:500}
+
+/* contenu editorial (pages internes) */
+.doc{padding-top:64px;padding-bottom:88px}
+.doc h1{font-size:clamp(1.8rem,4.6vw,2.6rem);max-width:22ch;margin-bottom:18px}
+.doc h2{font-size:1.35rem;margin:44px 0 14px}
+.doc ul{max-width:66ch;padding-left:22px}
+.doc li{margin:0 0 9px}
+.date{color:var(--craie-basse);font-size:15px;margin-bottom:34px}
+
+/* pied */
+footer{border-top:1px solid var(--trait);padding:44px 0 60px;color:var(--craie-basse);font-size:15px}
+footer .shell{display:flex;gap:30px 40px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
+footer a{color:var(--craie-basse);border-bottom-color:rgba(167,157,190,.4)}
+footer a:hover{color:var(--craie)}
+footer nav{display:flex;gap:24px;flex-wrap:wrap}
+.legal{max-width:34ch;margin:0}
+</style>
+</head>
+<body>
+<header class="entete">
+  <div class="shell">
+    <a class="marque" href="index.html"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="none" stroke="#7C4DFF" stroke-width="1.6"/><circle cx="13" cy="13" r="5.4" fill="none" stroke="#EDE6F5" stroke-width="1.4" opacity=".72"/><circle cx="13" cy="2" r="2.6" fill="#FF3DAF"/></svg><span>CosmoPixel&nbsp;Games</span></a>
+    <nav>
+      <a href="index.html#applications">Jeux et applications</a>
+      <a href="index.html#regle">La règle</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="ciel" aria-hidden="true"></div><div class="etoiles" aria-hidden="true"></div>
+  <div class="shell">
+    <h1 class="lever">Tout se passe sur votre téléphone. Rien ne part ailleurs.</h1>
+    <p class="chapo lever">CosmoPixel Games édite des jeux et des applications mobiles qui
+      fonctionnent <strong>entièrement hors ligne</strong>, sans compte, sans publicité
+      et sans la moindre collecte de données. Ce n'est pas un argument de vente ajouté
+      après coup : c'est la contrainte de départ de chaque projet.</p>
+    <div class="liens-hero lever">
+      <a class="bouton" href="mutant-coil.html">Découvrir Mutant Coil</a>
+    </div>
+    <p class="identite lever">Studio indépendant établi en France, dirigé par une seule
+      personne. Marque déposée à l'INPI.</p>
+  </div>
+</div>
+
+<section id="applications">
+  <div class="shell">
+    <h2>Ce qui sort en premier</h2>
+    <article class="vedette">
+      <div class="jeton">
+        <svg width="52" height="52" viewBox="0 0 52 52" aria-hidden="true">
+          <path d="M10 34 h14 a4 4 0 0 0 4-4 v-8 a4 4 0 0 1 4-4 h10"
+                fill="none" stroke="#C4B5FD" stroke-width="5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="42" cy="18" r="4.5" fill="#FF3DAF"/>
+        </svg>
+      </div>
+      <div>
+        <h3>Mutant Coil</h3>
+        <p>Un jeu de serpent d'arcade qui ne s'arrête pas au score. Vingt-six apparences
+          donnent chacune un pouvoir différent, des boss élémentaires viennent couper
+          les parties, et la progression se garde sur l'appareil. Sept langues,
+          manette supportée, et rien à acheter à l'intérieur.</p>
+        <div class="apres">
+          <a href="mutant-coil.html">Voir la page du jeu</a>
+          <span class="attente">Bientôt sur Google Play</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>En préparation</h2>
+    <ul class="projets">
+      <li>
+        <span class="nom">Memento Mori</span>
+        <p class="quoi">Un journal quotidien qui affiche une vie entière comme une grille
+          de jours. Verrouillé par code, rituel du soir guidé, sauvegarde exportée
+          par vos soins.</p>
+      </li>
+      <li>
+        <span class="nom">Cran</span>
+        <p class="quoi">Un carnet de musculation avec un catalogue de 256 exercices,
+          une double progression automatique et une carte du corps qui montre
+          ce que vous avez travaillé.</p>
+      </li>
+      <li>
+        <span class="nom">Glucid</span>
+        <p class="quoi">Un compteur de glucides appuyé sur la table Ciqual de l'Anses,
+          avec lecture des codes-barres. La base est embarquée, elle fonctionne
+          en magasin sans réseau.</p>
+      </li>
+      <li>
+        <span class="nom">Échéance</span>
+        <p class="quoi">Un suivi des papiers et des dates limites, qui prévient à la date
+          où il faut agir plutôt qu'au moment où il est trop tard.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>En développement</h2>
+    <p>Nova Coil, un shoot'em up vertical dont l'énergie sert à la fois de vie et de
+      puissance de tir. Et un jeu de conduite en monde ouvert, construit autour d'un
+      monde généré mais toujours identique d'une partie à l'autre.</p>
+    <p>Ces deux-là arriveront sur cette page quand ils seront prêts à être installés,
+      pas avant.</p>
+  </div>
+</section>
+
+<section id="regle">
+  <div class="shell">
+    <h2>La règle</h2>
+    <ul class="charte">
+      <li><p><b>Aucune donnée ne quitte l'appareil.</b> Pas de compte à créer, pas de serveur
+        en face, pas de mesure d'audience. Ce que vous entrez dans une application y reste.</p></li>
+      <li><p><b>Aucune publicité</b>, dans aucune application, sous aucune forme.</p></li>
+      <li><p><b>Tout fonctionne hors ligne.</b> Une fois installée, une application n'a plus
+        besoin du réseau. En avion, au sous-sol ou sans forfait, elle marche pareil.</p></li>
+      <li><p><b>Ce site suit la même règle.</b> Aucun traceur, aucun cookie, aucune police
+        ni script chargés depuis un autre serveur. C'est pour cette raison que vous n'avez
+        pas eu de bannière de consentement en arrivant.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>Écrire au studio</h2>
+    <p>Une question, un problème sur une application, une demande presse&nbsp;:
+      <a href="mailto:contact@cosmopixelgames.com">contact@cosmopixelgames.com</a>.
+      Les messages sont lus par la personne qui écrit les applications.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="shell">
+    <p class="legal">CosmoPixel Games, entreprise individuelle établie en France.
+      Marque déposée à l'INPI, classes 9 et 41.</p>
+    <nav>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="mailto:contact@cosmopixelgames.com">contact@cosmopixelgames.com</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
