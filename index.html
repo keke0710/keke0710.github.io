@@ -153,6 +153,7 @@ p:last-child{margin-bottom:0}
 }
 .apres{margin-top:22px;display:flex;gap:24px;flex-wrap:wrap;align-items:center}
 .attente{color:var(--craie-basse);font-size:15px}
+.vedette + .vedette{margin-top:28px}
 
 /* liste de projets */
 .projets{margin:0;padding:0;list-style:none}
@@ -221,6 +222,7 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}
       et sans la moindre collecte de données. Ce n'est pas un argument de vente ajouté
       après coup : c'est la contrainte de départ de chaque projet.</p>
     <div class="liens-hero lever">
+      <a class="bouton" href="lumecho.html">Découvrir Lumécho</a>
       <a class="bouton" href="mutant-coil.html">Découvrir Mutant Coil</a>
     </div>
     <p class="identite lever">Studio indépendant établi en France, dirigé par une seule
@@ -231,6 +233,30 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}
 <section id="applications">
   <div class="shell">
     <h2>Jeux et applications</h2>
+    <article class="vedette">
+      <div class="jeton">
+        <svg width="56" height="56" viewBox="0 0 52 52" aria-hidden="true">
+          <defs><linearGradient id="lum-infini" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#FF3DAF"/><stop offset=".5" stop-color="#9B7BFF"/><stop offset="1" stop-color="#6FE7FF"/>
+          </linearGradient></defs>
+          <circle cx="26" cy="26" r="21.5" fill="none" stroke="#C4B5FD" stroke-width="1.6" opacity=".55"/>
+          <path d="M26 26c-3.2-3.6-6.3-5.8-9.5-5.8a5.8 5.8 0 0 0 0 11.6c3.2 0 6.3-2.2 9.5-5.8s6.3-5.8 9.5-5.8a5.8 5.8 0 0 1 0 11.6c-3.2 0-6.3-2.2-9.5-5.8z"
+                fill="none" stroke="url(#lum-infini)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 7.6l1.05 2.35 2.35 1.05-2.35 1.05L15 14.4l-1.05-2.35-2.35-1.05 2.35-1.05z" fill="#EDE6F5"/>
+        </svg>
+      </div>
+      <div>
+        <h3>Lumécho</h3>
+        <p>Un jeu musical où chacun de vos pas vous survit. Chaque trajet de votre luciole
+          devient un écho qui le refait en boucle, et ces échos jouent un vrai morceau
+          pendant que vous les évitez. Douze mondes, chacun avec sa règle, cinquante-six
+          morceaux du domaine public, treize langues, et rien à acheter à l'intérieur.</p>
+        <div class="apres">
+          <a href="lumecho.html">Voir la page du jeu</a>
+          <span class="attente">Bientôt sur Google Play</span>
+        </div>
+      </div>
+    </article>
     <article class="vedette">
       <div class="jeton">
         <svg width="52" height="52" viewBox="0 0 52 52" aria-hidden="true">

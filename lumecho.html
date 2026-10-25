@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumécho — CosmoPixelGames</title>
+<meta name="description" content="Jeu musical pour Android : chaque trajet devient un écho qui joue la musique, et qu'il faut éviter. 12 mondes, 56 morceaux du domaine public, hors ligne et sans publicité.">
+<meta name="theme-color" content="#100B1E">
+<link rel="canonical" href="https://cosmopixelgames.com/lumecho.html">
+<meta property="og:url" content="https://cosmopixelgames.com/lumecho.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Crect width='26' height='26' rx='6' fill='%23100B1E'/%3E%3Ccircle cx='13' cy='13' r='8.5' fill='none' stroke='%237C4DFF' stroke-width='1.8'/%3E%3Ccircle cx='13' cy='4.5' r='2.4' fill='%23FF3DAF'/%3E%3C/svg%3E">
+<meta property="og:title" content="Lumécho — CosmoPixelGames">
+<meta property="og:description" content="Jeu musical pour Android : chaque trajet devient un écho qui joue la musique, et qu'il faut éviter. 12 mondes, 56 morceaux du domaine public, hors ligne et sans publicité.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://cosmopixelgames.com/lumecho/partage.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --nuit:#100B1E;
+  --nuit-haute:#191130;
+  --violet:#7C4DFF;
+  --rose:#FF3DAF;
+  --craie:#EDE6F5;
+  --craie-basse:#A79DBE;
+  --trait:rgba(237,230,245,.13);
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--nuit); color:var(--craie);
+  font:400 17px/1.62 var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+.shell{max-width:1000px;margin:0 auto;padding:0 28px}
+@media (max-width:600px){ .shell{padding:0 20px} }
+
+a{color:var(--rose);text-decoration:none;border-bottom:1px solid rgba(255,61,175,.38)}
+a:hover{border-bottom-color:var(--rose)}
+a:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:2px}
+
+/* ---------- en-tete ---------- */
+.entete{position:relative;z-index:2;padding:26px 0 0}
+.entete .shell{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.marque{display:flex;align-items:center;gap:11px;color:var(--craie);border:0;font-weight:600;letter-spacing:.005em}
+.marque svg{display:block;flex:none}
+.entete nav{margin-left:auto;display:flex;gap:22px}
+.entete nav a{color:var(--craie-basse);border:0;font-size:15px}
+.entete nav a:hover{color:var(--craie)}
+@media (max-width:640px){ .entete nav{margin-left:0;width:100%;gap:18px} }
+
+/* ---------- ciel ---------- */
+.hero{position:relative;overflow:hidden;padding:104px 0 92px}
+.ciel{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(58rem 38rem at 80% -12%, rgba(124,77,255,.17), transparent 64%),
+    radial-gradient(42rem 28rem at 4% 26%, rgba(255,61,175,.09), transparent 60%);
+}
+.etoiles{position:absolute;top:0;left:0;width:2px;height:2px;border-radius:50%;
+  background:transparent;pointer-events:none;
+  box-shadow:
+   64px 118px rgba(237,230,245,.55), 213px 62px rgba(237,230,245,.34), 351px 190px rgba(237,230,245,.45),
+   470px 96px rgba(255,61,175,.50), 588px 232px rgba(237,230,245,.28), 705px 44px rgba(237,230,245,.42),
+   822px 174px rgba(237,230,245,.32), 940px 118px rgba(196,181,253,.55), 118px 262px rgba(237,230,245,.24),
+   276px 330px rgba(237,230,245,.38), 412px 292px rgba(237,230,245,.22), 534px 356px rgba(196,181,253,.34),
+   664px 300px rgba(237,230,245,.44), 790px 372px rgba(237,230,245,.20), 908px 268px rgba(255,61,175,.36),
+   34px 402px rgba(237,230,245,.30), 168px 448px rgba(237,230,245,.20), 992px 410px rgba(237,230,245,.30),
+   1078px 152px rgba(237,230,245,.26), 1146px 320px rgba(196,181,253,.30);
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero .lever{opacity:0;transform:translateY(14px);animation:lever .9s cubic-bezier(.2,.7,.3,1) forwards}
+  .hero .lever:nth-child(2){animation-delay:.10s}
+  .hero .lever:nth-child(3){animation-delay:.18s}
+  .hero .lever:nth-child(4){animation-delay:.26s}
+  .hero .lever:nth-child(5){animation-delay:.34s}
+  @keyframes lever{to{opacity:1;transform:none}}
+}
+
+.hero .shell{position:relative;z-index:1}
+.logo{
+  display:block;width:100%;max-width:520px;height:auto;
+  margin:0 0 34px;
+}
+h1{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(1.85rem,5.2vw,3rem);line-height:1.12;letter-spacing:-.018em;
+  margin:0 0 26px;max-width:17ch;
+}
+.chapo{font-size:clamp(1.02rem,2.4vw,1.2rem);color:var(--craie-basse);max-width:54ch;margin:0 0 30px}
+.chapo strong{color:var(--craie);font-weight:500}
+.identite{font-size:14.5px;color:var(--craie-basse);margin:34px 0 0;max-width:52ch}
+
+.liens-hero{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+.bouton{
+  display:inline-block;padding:13px 24px;border:1px solid rgba(255,61,175,.55);
+  border-radius:999px;color:var(--craie);font-weight:500;font-size:16px;
+  background:rgba(255,61,175,.10);
+}
+.bouton:hover{background:rgba(255,61,175,.18);border-color:var(--rose)}
+
+/* ---------- sections ---------- */
+section{padding:78px 0;border-top:1px solid var(--trait)}
+h2{
+  font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,3.4vw,2.1rem);
+  line-height:1.2;letter-spacing:-.012em;margin:0 0 34px;
+}
+h3{font-family:var(--serif);font-weight:400;font-size:1.32rem;line-height:1.25;margin:0 0 10px}
+p{margin:0 0 18px;max-width:66ch}
+p:last-child{margin-bottom:0}
+
+/* jeu en vedette */
+.vedette{
+  background:var(--nuit-haute);border:1px solid var(--trait);border-radius:20px;
+  padding:38px;display:grid;grid-template-columns:96px 1fr;gap:30px;align-items:start;
+}
+.vedette h3{font-size:1.75rem;margin-bottom:14px}
+.jeton{
+  width:96px;height:96px;border-radius:26px;display:grid;place-items:center;
+  background:radial-gradient(circle at 34% 28%, #3B1F6B, #14092B 72%);
+  border:1px solid rgba(237,230,245,.12);
+}
+@media (max-width:640px){
+  .vedette{grid-template-columns:1fr;padding:26px;gap:22px}
+  .jeton{width:76px;height:76px;border-radius:20px}
+}
+.apres{margin-top:22px;display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.attente{color:var(--craie-basse);font-size:15px}
+
+/* liste de projets */
+.projets{margin:0;padding:0;list-style:none}
+.projets li{
+  display:grid;grid-template-columns:13rem 1fr;gap:28px;
+  padding:24px 0;border-top:1px solid var(--trait);align-items:baseline;
+}
+.projets li:first-child{border-top:0;padding-top:0}
+.projets .nom{font-family:var(--serif);font-size:1.25rem;line-height:1.3}
+.projets .quoi{color:var(--craie-basse);margin:0;max-width:54ch}
+@media (max-width:640px){
+  .projets li{grid-template-columns:1fr;gap:7px}
+}
+
+/* la charte */
+.charte{margin:0;padding:0;list-style:none;max-width:64ch}
+.charte li{
+  border-left:2px solid var(--violet);padding:2px 0 2px 22px;margin:0 0 26px;
+}
+.charte li:last-child{margin-bottom:0;border-left-color:var(--rose)}
+.charte p{margin:0;color:var(--craie-basse)}
+.charte b{color:var(--craie);font-weight:500}
+
+/* contenu editorial (pages internes) */
+.doc{padding-top:64px;padding-bottom:88px}
+.doc h1{font-size:clamp(1.8rem,4.6vw,2.6rem);max-width:22ch;margin-bottom:18px}
+.doc h2{font-size:1.35rem;margin:44px 0 14px}
+.doc ul{max-width:66ch;padding-left:22px}
+.doc li{margin:0 0 9px}
+.date{color:var(--craie-basse);font-size:15px;margin-bottom:34px}
+
+/* pied */
+footer{border-top:1px solid var(--trait);padding:44px 0 60px;color:var(--craie-basse);font-size:15px}
+footer .shell{display:flex;gap:30px 40px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
+footer a{color:var(--craie-basse);border-bottom-color:rgba(167,157,190,.4)}
+footer a:hover{color:var(--craie)}
+footer nav{display:flex;gap:24px;flex-wrap:wrap}
+.legal{max-width:34ch;margin:0}
+
+/* captures du jeu */
+.doc .galerie{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:66ch}
+.doc .galerie li{margin:0}
+.galerie img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--trait);background:#05060f}
+@media (max-width:760px){ .doc .galerie{grid-template-columns:repeat(2,1fr);gap:12px} }
+</style>
+</head>
+<body>
+<header class="entete">
+  <div class="shell">
+    <a class="marque" href="/"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="none" stroke="#7C4DFF" stroke-width="1.6"/><circle cx="13" cy="13" r="5.4" fill="none" stroke="#EDE6F5" stroke-width="1.4" opacity=".72"/><circle cx="13" cy="2" r="2.6" fill="#FF3DAF"/></svg><span>CosmoPixelGames</span></a>
+    <nav>
+      <a href="index.html#applications">Jeux et applications</a>
+      <a href="index.html#regle">La règle</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </nav>
+  </div>
+</header>
+
+<main class="shell doc">
+  <h1>Lumécho</h1>
+  <p class="date">Jeu musical pour Android — bientôt sur Google Play</p>
+  <p>Chacun de vos pas vous survit. Vous guidez une luciole d'étoile en étoile, et chaque
+    trajet devient aussitôt un écho&nbsp;: une copie lumineuse qui refait ce chemin en boucle,
+    pour toujours. Plus vous attrapez d'étoiles, plus l'arène se remplit de votre propre passé,
+    et le seul adversaire, c'est vous.</p>
+  <h2>Vos trajets jouent la musique</h2>
+  <p>Chaque étoile joue la note suivante d'un vrai morceau, et les échos jouent les accords
+    en faisant leurs allers-retours. Partie après partie, on reconstruit la Lettre à Élise,
+    l'Ode à la joie ou la Marche turque avec ses propres trajectoires. Frôler un écho rapporte
+    des points&nbsp;; le toucher met fin à la partie.</p>
+  <h2>Douze mondes, chacun sa règle</h2>
+  <p>La nuit qui ne laisse voir que les abords de la luciole, le miroir qui double chaque écho,
+    la platine qui fait tourner l'arène, le soleil qui attire vers le centre, puis les couleurs,
+    la glace, la marée, les portails, l'ombre et les commandes à l'envers. Le dernier monde,
+    Supernova, enchaîne toutes ces règles dans un ordre tiré au sort à chaque partie.</p>
+  <h2>Cinquante-six morceaux du domaine public</h2>
+  <p>Beethoven, Mozart, Bach, Chopin, Vivaldi, Debussy, Tchaïkovski, Grieg, Satie, Joplin,
+    des comptines, et deux nuits qui reviennent chaque année avec leurs propres morceaux&nbsp;:
+    la Nuit d'Halloween, du 15 octobre au 7 novembre, et la Nuit de Noël, du 1er novembre
+    au 15 janvier. La musicothèque garde les morceaux gagnés et permet de choisir le suivant.</p>
+  <h2>En images</h2>
+  <ul class="galerie">
+    <li><img src="captures/lumecho-1.webp" width="540" height="960" loading="lazy" alt="Partie en cours dans le monde Aurore : la luciole file entre ses échos, avec la légende « Ne touche jamais ton passé »"></li>
+    <li><img src="captures/lumecho-2.webp" width="540" height="960" loading="lazy" alt="Les échos jouent les accords pendant que la luciole attrape une étoile en rythme, avec la légende « Tes échos jouent la musique »"></li>
+    <li><img src="captures/lumecho-3.webp" width="540" height="960" loading="lazy" alt="Le monde Portails et ses deux portails reliés, avec la légende « 12 mondes, chacun sa règle »"></li>
+    <li><img src="captures/lumecho-4.webp" width="540" height="960" loading="lazy" alt="La Nuit de Noël, avec la légende « Halloween et Noël, chaque année »"></li>
+  </ul>
+  <h2>Ce qu'il y a, et ce qu'il n'y a pas</h2>
+  <ul>
+    <li>Treize langues.</li>
+    <li>Un défi du jour&nbsp;: les mêmes étoiles pour tout le monde, avec une variante qui
+      change chaque jour.</li>
+    <li>Des défis entre amis&nbsp;: un code, et votre ami joue exactement la même partie
+      pour tenter de vous battre.</li>
+    <li>Un mode Zen, sans mort, juste la musique.</li>
+    <li>Téléphone et tablette, en portrait comme en paysage.</li>
+    <li>Une sauvegarde à exporter dans un fichier, pour la retrouver sur un autre appareil.</li>
+    <li>Aucune publicité, aucun achat intégré, aucun compte.</li>
+    <li>Aucune connexion&nbsp;: le jeu ne contacte aucun serveur, jamais.</li>
+  </ul>
+  <h2>Disponibilité</h2>
+  <p>Lumécho arrive sur Google Play. Une démo gratuite, jouable directement dans le
+    navigateur avec le premier monde, sera proposée sur cette page à ce moment-là.</p>
+  <h2>Données personnelles</h2>
+  <p>Lumécho ne collecte rien. Les scores, les mondes débloqués et les morceaux gagnés sont
+    écrits dans la mémoire locale de l'appareil. Le détail figure dans la
+    <a href="lumecho/confidentialite.html">politique de confidentialité du jeu</a>.</p>
+</main>
+
+<footer>
+  <div class="shell">
+    <p class="legal">CosmoPixelGames, entreprise individuelle établie en France.
+      Marque déposée à l'INPI, classes 9 et 41, enregistrement en cours.</p>
+    <nav>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="mailto:contact@cosmopixelgames.com">contact@cosmopixelgames.com</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
